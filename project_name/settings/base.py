@@ -134,7 +134,6 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
 
     'south',
-    'devserver',
     'compressor',
     'debug_toolbar',
 
