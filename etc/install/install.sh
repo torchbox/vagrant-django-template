@@ -12,7 +12,7 @@ VIRTUALENV_NAME=$PROJECT_NAME
 PROJECT_DIR=/home/vagrant/$PROJECT_NAME
 VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
 
-PGSQL_VERSION=9.1
+PGSQL_VERSION=9.3
 
 # Need to fix locale so that Postgres creates databases in UTF-8
 cp -p $PROJECT_DIR/etc/install/etc-bash.bashrc /etc/bash.bashrc
