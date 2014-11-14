@@ -11,6 +11,7 @@ VIRTUALENV_NAME=$PROJECT_NAME
 
 PROJECT_DIR=/home/vagrant/$PROJECT_NAME
 VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
+LOCAL_SETTINGS_PATH="/$PROJECT_NAME/settings/local.py"
 
 PGSQL_VERSION=9.3
 
@@ -90,4 +91,7 @@ chmod a+x $PROJECT_DIR/manage.py
 su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && ./manage.py syncdb --noinput && ./manage.py migrate"
 
 # Add settings/local.py to gitignore
-echo "/$PROJECT_NAME/settings/local.py" >> $PROJECT_DIR/.gitignore
+if ! grep -Fqx $LOCAL_SETTINGS_PATH $PROJECT_DIR/.gitignore
+then
+    echo $LOCAL_SETTINGS_PATH >> $PROJECT_DIR/.gitignore
+fi
