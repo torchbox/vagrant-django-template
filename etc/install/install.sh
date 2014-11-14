@@ -88,3 +88,6 @@ chmod a+x $PROJECT_DIR/manage.py
 
 # Django project setup
 su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && ./manage.py syncdb --noinput && ./manage.py migrate"
+
+# Add settings/local.py to gitignore
+echo "/$PROJECT_NAME/settings/local.py" >> $PROJECT_DIR/.gitignore
