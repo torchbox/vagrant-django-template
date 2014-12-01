@@ -11,8 +11,9 @@ VIRTUALENV_NAME=$PROJECT_NAME
 
 PROJECT_DIR=/home/vagrant/$PROJECT_NAME
 VIRTUALENV_DIR=/home/vagrant/.virtualenvs/$PROJECT_NAME
+LOCAL_SETTINGS_PATH="/$PROJECT_NAME/settings/local.py"
 
-PGSQL_VERSION=9.1
+PGSQL_VERSION=9.3
 
 # Need to fix locale so that Postgres creates databases in UTF-8
 cp -p $PROJECT_DIR/etc/install/etc-bash.bashrc /etc/bash.bashrc
@@ -88,3 +89,9 @@ chmod a+x $PROJECT_DIR/manage.py
 
 # Django project setup
 su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && ./manage.py syncdb --noinput && ./manage.py migrate"
+
+# Add settings/local.py to gitignore
+if ! grep -Fqx $LOCAL_SETTINGS_PATH $PROJECT_DIR/.gitignore
+then
+    echo $LOCAL_SETTINGS_PATH >> $PROJECT_DIR/.gitignore
+fi
