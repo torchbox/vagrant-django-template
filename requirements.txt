@@ -1,4 +1,4 @@
-Django==1.7.1
+Django>=1.9,<1.10
 psycopg2==2.5.4
 django-compressor==1.4
 django-debug-toolbar==1.2.2
