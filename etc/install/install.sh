@@ -62,7 +62,7 @@ su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache"
 createdb -Upostgres $DB_NAME
 
 # virtualenv setup for project
-su - vagrant -c "/usr/local/bin/virtualenv $VIRTUALENV_DIR && \
+su - vagrant -c "/usr/local/bin/virtualenv $VIRTUALENV_DIR --python=/usr/bin/python3.4 && \
     echo $PROJECT_DIR > $VIRTUALENV_DIR/.project && \
     PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache $VIRTUALENV_DIR/bin/pip install -r $PROJECT_DIR/requirements.txt"
 
