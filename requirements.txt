@@ -1,7 +1,7 @@
 Django>=1.9,<1.10
-psycopg2==2.5.4
+psycopg2>=2.6
 django-compressor>=1.6
 django-libsass>=0.6
 django-debug-toolbar>=1.4
-gunicorn==19.1.1
-Fabric==1.10.0
+gunicorn>=19.1.1
+Fabric>=1.10.0
