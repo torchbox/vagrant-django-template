@@ -88,7 +88,7 @@ echo "workon $VIRTUALENV_NAME" >> /home/vagrant/.bashrc
 chmod a+x $PROJECT_DIR/manage.py
 
 # Django project setup
-su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && ./manage.py syncdb --noinput && ./manage.py migrate"
+su - vagrant -c "source $VIRTUALENV_DIR/bin/activate && cd $PROJECT_DIR && ./manage.py migrate"
 
 # Add settings/local.py to gitignore
 if ! grep -Fqx $LOCAL_SETTINGS_PATH $PROJECT_DIR/.gitignore
