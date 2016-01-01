@@ -1,19 +1,19 @@
 vagrant-django-template
 =======================
 
-A template for new Django 1.7 projects developed under Vagrant. Features offered include:
+A template for new Django 1.9 projects developed under Vagrant. Features offered include:
 
 * A Vagrantfile for building an Ubuntu Trusty based VM
 * A virtualenv (configured to be active on login), with project dependencies managed through a requirements.txt file
 * A PostgreSQL database (with the same name as the project, pre-configured in the project settings file)
 * Separation of configuration settings into base.py, dev.py and production.py (and optionally local.py, kept outside
   of version control) as per http://www.sparklewise.com/django-settings-for-production-and-development-best-practices/
-* South, django-devserver, django-compressor, django-debug-toolbar out of the box
+* django-compressor and django-debug-toolbar out of the box
 * A boilerplate base template with jquery included, and various other ideas and best practices borrowed from https://github.com/h5bp/html5-boilerplate
 
 Setup
 -----
-Install Django 1.7 on your host machine. (Be sure to explicitly uninstall earlier versions first, or use a virtualenv -
+Install Django 1.9 on your host machine. (Be sure to explicitly uninstall earlier versions first, or use a virtualenv -
 having earlier versions around seems to cause pre-1.4-style settings.py and urls.py files to be generated alongside the
 new ones.)
 
