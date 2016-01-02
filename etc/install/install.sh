@@ -27,9 +27,9 @@ export LC_ALL=en_GB.UTF-8
 # Install essential packages from Apt
 apt-get update -y
 # Python dev packages
-apt-get install -y build-essential python python-dev
+apt-get install -y build-essential python python3-dev
 # python-setuptools being installed manually
-wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python
+wget https://bitbucket.org/pypa/setuptools/raw/bootstrap/ez_setup.py -O - | python3.4
 # Dependencies for image processing with Pillow (drop-in replacement for PIL)
 # supporting: jpeg, tiff, png, freetype, littlecms
 # (pip install pillow to get pillow itself, it is not in requirements.txt)
@@ -49,12 +49,11 @@ if ! command -v pip; then
     easy_install -U pip
 fi
 if [[ ! -f /usr/local/bin/virtualenv ]]; then
-    pip install virtualenv virtualenvwrapper stevedore virtualenv-clone
+    pip3.4 install virtualenv virtualenvwrapper stevedore virtualenv-clone
 fi
 
 # bash environment global setup
 cp -p $PROJECT_DIR/etc/install/bashrc /home/vagrant/.bashrc
-su - vagrant -c "mkdir -p /home/vagrant/.pip_download_cache"
 
 # ---
 
@@ -64,7 +63,7 @@ createdb -Upostgres $DB_NAME
 # virtualenv setup for project
 su - vagrant -c "/usr/local/bin/virtualenv $VIRTUALENV_DIR --python=/usr/bin/python3.4 && \
     echo $PROJECT_DIR > $VIRTUALENV_DIR/.project && \
-    PIP_DOWNLOAD_CACHE=/home/vagrant/.pip_download_cache $VIRTUALENV_DIR/bin/pip install -r $PROJECT_DIR/requirements.txt"
+    $VIRTUALENV_DIR/bin/pip install -r $PROJECT_DIR/requirements.txt"
 
 echo "workon $VIRTUALENV_NAME" >> /home/vagrant/.bashrc
 
